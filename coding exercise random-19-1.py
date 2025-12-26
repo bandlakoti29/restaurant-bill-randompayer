@@ -1,0 +1,104 @@
+"""Statement :- There total n friends who want to go Restaurant and order and they want to
+                pay bill only one among but randomly"""
+import random as r
+names=input("Enter N no of friends Who want to go restaurant:").lower().split(",")
+print(names)
+payer=r.choice(names)
+print(f"{payer} need to pay the bill !😜")
+
+def ram_withdraw(amount,total_bill):
+    if total_bill < amount:
+        amount -= total_bill
+    else:
+        print("Balance is not sufficient.")
+    return amount
+
+def koti_withdraw(amount,total_bill):
+    if total_bill < amount:
+        amount -= total_bill
+    else:
+        print("Balance is not sufficient.")
+    return amount
+
+def kavya_withdraw(amount,total_bill):
+    if total_bill < amount:
+        amount -= total_bill
+    else:
+        print("Balance is not sufficient.")
+    return amount
+
+def Hanu_withdraw(amount,total_bill):
+    if total_bill < amount:
+        amount -= total_bill
+    else:
+        print("Balance is not sufficient.")
+    return amount
+
+def Srinu_withdraw(amount,total_bill):
+    if total_bill < amount:
+        amount -= total_bill
+    else:
+        print("Balance is not sufficient.")
+    return amount
+
+Menu = {"Veg Biriyani":150,
+        "Chicken Biriyani":250,
+        "Mutton Biriyani" : 350,
+        "Fry Biriyani":280,
+        "Coke":40,
+        "pepsi":40,
+        "sprite":40,
+        "manchuria":150,
+        "Boiled Egg":10}
+print("-----------------------------Displaying the menu-----------------------------")
+
+for ind,(key,value) in enumerate(Menu.items(),start=1):
+    print(f"{ind} - {key}: ₹{value}")
+orders ={}
+total_bill=0
+Isture=True
+
+for i in names:
+    print(f"--------------{i} it your time to order---------------------")
+    items = input(f"Want do you want order {i}:").split(",")
+    for item in items:
+        if item in Menu:
+            qty = int(input(f"how many u want order {item}:"))
+            if item in orders:
+                orders[item] += qty
+            else:
+                orders[item] = qty
+        else:
+            print(f"{item} not available in order Menu!")
+            continue
+
+'''------------------------Calculating total order amount-----------------'''
+print(f"------------------------Calculating total order amount-----------------")
+for key,value in orders.items():
+    total_bill += Menu.get(key) * value
+    print(f"{key} : ₹{Menu.get(key)} * {value}")
+
+print(f"Total Bill you ned to pay:₹{total_bill}")
+
+match payer:
+    case 'ram':
+        result=ram_withdraw(6000, total_bill)
+        print(f"remaining amount:{result}")
+    case 'kavya':
+        result2=kavya_withdraw(4500, total_bill)
+        print(f"remaining amount:{result2}")
+    case 'srinu':
+         result3=Srinu_withdraw(10000, total_bill)
+         print(f"remaining amount:{result3}")
+    case 'hanu':
+          result4=Hanu_withdraw(8000, total_bill)
+          print(f"remaining amount:{result4}")
+
+
+
+
+
+
+
+
+
